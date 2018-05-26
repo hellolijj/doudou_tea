@@ -28,9 +28,9 @@
     "pages/course/course_remark"
   ],
   "window": {
-    "backgroundColor": "#4bbc93",
+    "backgroundColor": "#5d64d2",
     "backgroundTextStyle": "#eee",
-    "navigationBarBackgroundColor": "#4bbc93",
+    "navigationBarBackgroundColor": "#5d64d2", 
     "navigationBarTitleText": "豆豆云助教",
     "navigationBarTextStyle": "light"
   },
