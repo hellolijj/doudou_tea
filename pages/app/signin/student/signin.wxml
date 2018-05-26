@@ -4,7 +4,7 @@
   <template is="zan-tab" data="{{ ...signin_list, componentId: 'signin_list' }}"></template>
 
   <view wx:if="{{signin_list.selectedId == 'before_start'}}">
-    <view class="zan-panel class-header" wx:for="{{signin_items.before_start}}" wx:for-item="signin_item"  data-signin_id='{{signin_item.id}}' bindtap='signin_online'>
+    <view class="zan-panel class-header" wx:for="{{signin_items.before_start}}" wx:for-item="signin_item"  data-signin_id='{{signin_item.id}}' data-signin_name='{{signin_item.title}}' bindtap='signin_online'>
       <view class="zan-card">
         <view class="zan-card__detail-row">
           <view class="zan-card__right-col">
@@ -45,7 +45,7 @@
     <view wx:if="{{signin_items.is_doing.length == 0}}">
       <template is="zan-loadmore" data="{{ nodata: true }}" />
     </view>
-    <view class="zan-panel class-header" wx:for="{{signin_items.is_doing}}" wx:for-item="signin_item" data-signin_id='{{signin_item.id}}' bindtap='signin_online'>
+    <view class="zan-panel class-header" wx:for="{{signin_items.is_doing}}" wx:for-item="signin_item" data-signin_id='{{signin_item.id}}' data-signin_name='{{signin_item.title}}' bindtap='signin_online'>
       <view class="zan-card">
         <view class="zan-card__detail-row">
           <view class="zan-card__right-col">
@@ -80,7 +80,7 @@
 
   </view>
   <view wx:if="{{signin_list.selectedId == 'is_done'}}">
-    <view class="zan-panel class-header" wx:for="{{signin_items.is_done}}" wx:for-item="signin_item" data-signin_id='{{signin_item.id}}' bindtap='signin_online'>
+    <view class="zan-panel class-header" wx:for="{{signin_items.is_done}}" wx:for-item="signin_item" data-signin_id='{{signin_item.id}}' data-signin_name='{{signin_item.title}}' bindtap='signin_online'>
       <view class="zan-card">
         <view class="zan-card__detail-row">
           <view class="zan-card__right-col">

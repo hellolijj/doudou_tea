@@ -36,12 +36,16 @@ Page(extend({}, Tab, Switch, {
   },
   onLoad(option) {
     let signin_id = option.signin_id
+    let signin_name = option.signin_name
     let course_id = wx.getStorageSync('pingshifen_current_course_id')
     let user_type = wx.getStorageSync('pingshifen_user_type')
     if (!signin_id || !user_type || !course_id) {
       wx.showToast({ title: '参数错误', icon: 'none' })
       return
     }
+    wx.setNavigationBarTitle({
+      title: signin_name,
+    })
     this.setData({ user_type: user_type, signin_id: signin_id, course_id: course_id })
     this.signin_online_view()
     this.signin_record_view()

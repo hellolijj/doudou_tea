@@ -88,7 +88,7 @@ Page(Object.assign({}, Zan.Tab, {
   signin_online(e) {
     console.log(e.currentTarget.dataset)
     wx.navigateTo({
-      'url': '/pages/app/signin/student/signin_online?signin_id=' + e.currentTarget.dataset.signin_id
+      'url': '/pages/app/signin/student/signin_online?signin_id=' + e.currentTarget.dataset.signin_id + '&signin_name=' + e.currentTarget.dataset.signin_name
     })
   },
   bindSigninCreate: function () {
