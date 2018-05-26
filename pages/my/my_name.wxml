@@ -1,0 +1,13 @@
+<import src="/dist/field/index.wxml" />
+<view class="container">
+  <view class="zan-panel">
+    <template
+      is="zan-field"
+      data="{{ title: '', type: 'input', placeholder: '请输入姓名', value }}"></template>
+  </view>
+  <view class="zan-btns">
+      <button
+        class="zan-btn zan-btn--primary"
+        formType="submit" bindtap="submit">提交数据</button>
+  </view>
+</view>

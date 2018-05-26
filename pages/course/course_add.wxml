@@ -1,0 +1,102 @@
+<view class='container' wx:if="{{!show_course}}">
+  <view class='course_number'>
+    <paySix bindvalueSix="valueSix"></paySix>
+  </view>
+  <view class="doc-description">
+    请输入6位数课程号
+  </view>
+  <view class='recommend_header'>课程推荐</view>
+  <view class="zan-panel">
+    <view class="zan-card" bindtap='course_add_140533'>
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-03-09/5aa28cb1deb7d.jpg" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            毛概平台
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>浙江工商大学
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>诸葛斌
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140533 </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+    <view class="zan-card" bindtap='course_add_140529'>
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="http://pingshif-img.stor.sinaapp.com/2018-03-07/5a9fd04db01e9.jpg" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            近现代史纲要
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>浙江工商大学
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>周老师
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:140529 </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-chat class-info-icon"></view>豆豆推荐
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="page" wx:if="{{show_course}}">
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area">
+      <image src="{{course.logo}}" class='course_img'></image>
+    </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">{{course.name}}</view>
+      <view class="zan-card__detail-row zan-c-black">
+        <view class="zan-icon zan-icon-wap-home class-info-icon"></view>{{course.school}}
+      </view>
+      <view class="zan-card__detail-row zan-c-black">
+        <view class="zan-icon zan-icon-contact class-info-icon"></view>{{course.name}}
+      </view>
+      <view class="zan-card__detail-row zan-c-black">
+        <view class="zan-icon zan-icon-chat class-info-icon"></view>已有{{course.count}}人加入
+      </view>
+    </view>
+    <view class="weui-msg__opr-area">
+      <view class="weui-btn-area">
+        <button class="zan-btn zan-btn--primary" wx:if="{{course.is_ok}}" bindtap='course_add'>加入课程</button>
+        <button class="zan-btn zan-btn--primary zan-btn--disabled" wx:else disabled>{{course.err_message}}</button>
+        <button class="zan-btn" bindtap="research">重新检索</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+.course_img {
+  height: 120rpx;
+  width: 120rpx;
+}

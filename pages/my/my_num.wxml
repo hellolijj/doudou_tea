@@ -1,0 +1,14 @@
+<!--pages/my/my_num.wxml-->
+<import src="/dist/field/index.wxml" />
+<view class="container">
+  <view class="zan-panel">
+    <template
+      is="zan-field"
+      data="{{ title: '', type: 'input', inputType:'number', placeholder: '请输入学号', value }}"></template>
+  </view>
+  <view class="zan-btns">
+      <button
+        class="zan-btn zan-btn--primary"
+        formType="submit" bindtap="submit">提交数据</button>
+  </view>
+</view>

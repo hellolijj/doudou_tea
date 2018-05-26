@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="zan-cell">
+      <view class="zan-cell__bd">
+        <view class="">
+          <view>435实验室</view>
+          <view class="zan-c-black">有空常来学习...</view>
+        </view>
+      </view>
+  </view>
+</view>
+
+
+
+

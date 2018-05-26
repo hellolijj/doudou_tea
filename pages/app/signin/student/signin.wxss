@@ -1,0 +1,36 @@
+.zan-tab__item--selected .zan-tab__title {
+  color:#4bbc93;
+  border-bottom: 2px solid #4bbc93;
+}
+.container{
+  padding: 0;
+}
+.class-header{
+  margin-top: 0;
+}
+.head_img{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+.signin_title{
+  position: absolute;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 40px;
+}
+.signin_icon_arrow{
+  font-size: 18px;
+  color: #4bbc93;
+  margin-top: 8px;
+}
+.signin_count{
+  font-size: 16px;
+}
+.signin_add_icon {
+  color: #4bbc93;
+  font-size: 30px;
+  position:fixed;
+  bottom: 80rpx;
+  right: 25px;
+}

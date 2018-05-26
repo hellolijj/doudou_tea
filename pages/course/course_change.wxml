@@ -1,0 +1,75 @@
+<import src="/dist/tab/index.wxml" />
+<import src="/dist/loadmore/index.wxml" />
+<view class="container">
+  <template is="zan-tab" data="{{ ...all_course, componentId: 'tab1' }}"></template>
+  <view wx:if="{{all_course.selectedId == 'locked'}}">
+
+    <view class="zan-panel class-header" wx:for="{{courses_in_lock}}" wx:for-index="idx" data-current_course_id='{{course.id}}' bindtap='course_change' bindlongpress='course_action' wx:for-item="course">
+      <view class="zan-card">
+        <view class="zan-card__thumb">
+          <image class="zan-card__img" src="{{course.logo}}" mode="aspectFit"></image>
+        </view>
+        <view class="zan-card__detail">
+          <view class="zan-card__detail-row">
+            <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+              {{course.name}}
+            </view>
+          </view>
+          <view class="zan-card__detail-row zan-c-black">
+            <view class="zan-card__right-col"></view>
+            <view class="zan-card__left-col">
+              <view class="zan-icon zan-icon-wap-home class-info-icon"></view>{{course.teacher.school}}
+            </view>
+          </view>
+          <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="zan-card__left-col zan-c-black">
+              <view class="zan-icon zan-icon-contact class-info-icon"></view>{{course.teacher.name}}
+            </view>
+          </view>
+          <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:{{course.id}} </view>
+            <view class="zan-card__left-col">
+              <view class="zan-icon zan-icon-chat class-info-icon"></view>{{course.count}}人加入
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template is="zan-loadmore" data="{{ nodata: true }}" wx:if="{{courses_in_lock.length == 0}}" />
+  </view>
+  <view wx:if="{{all_course.selectedId == 'is_using'}}">
+    <view class="zan-panel class-header" wx:for="{{courses_in_use}}" wx:for-index="idx" data-current_course_id='{{course.id}}' bindtap='course_change' bindlongpress='course_action' wx:for-item="course">
+      <view class="zan-card">
+        <view class="zan-card__thumb">
+          <image class="zan-card__img" src="{{course.logo}}" mode="aspectFit"></image>
+        </view>
+        <view class="zan-card__detail">
+          <view class="zan-card__detail-row">
+            <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+              {{course.name}}
+            </view>
+          </view>
+          <view class="zan-card__detail-row zan-c-black">
+            <view class="zan-card__right-col"></view>
+            <view class="zan-card__left-col">
+              <view class="zan-icon zan-icon-wap-home class-info-icon"></view>{{course.teacher.school}}
+            </view>
+          </view>
+          <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="zan-card__left-col zan-c-black">
+              <view class="zan-icon zan-icon-contact class-info-icon"></view>{{course.teacher.name}}
+            </view>
+          </view>
+          <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:{{course.id}} </view>
+            <view class="zan-card__left-col">
+              <view class="zan-icon zan-icon-chat class-info-icon"></view>{{course.count}}人加入
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template is="zan-loadmore" data="{{ nodata: true }}" wx:if="{{courses_in_use.length == 0}}" />
+  </view>
+  <view class="zan-icon zan-icon-add-o course_add_icon" bindtap='bindCourseAdd'></view>
+</view>

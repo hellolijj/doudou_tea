@@ -1,0 +1,62 @@
+  {
+  "pages": [
+    "pages/index/index",
+    "pages/app/register/register",
+    
+    "pages/course/course_create",
+    "pages/app/question/list",
+    "pages/course/class_student",
+    "pages/my/index",
+    "pages/app/answer/answer_info/info",
+    "pages/app/signin/student/signin",
+    "pages/course/course_add",
+    "pages/course/course_change",
+    "pages/my/my_school",
+    "pages/my/my_info",
+    "pages/app/signin/student/signin_create",
+    "pages/app/signin/student/signin_online",
+    "pages/app/answer/answer_simulate_tip/simulate_tip",
+    "pages/app/answer/answer_simulate_info/simulate_info",
+    "pages/app/answer/answer_chapter/chapter",
+    "pages/app/answer/answer_classify/classify",
+    "pages/app/answer/answer_mark/mark",
+    "pages/my/my_name",
+    "pages/my/my_num",
+    "pages/my/my_sex",
+    "pages/course/course_name",
+    "pages/course/course_class_name",
+    "pages/course/course_remark"
+  ],
+  "window": {
+    "backgroundColor": "#4bbc93",
+    "backgroundTextStyle": "#eee",
+    "navigationBarBackgroundColor": "#4bbc93",
+    "navigationBarTitleText": "豆豆云助教",
+    "navigationBarTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#31a030",
+    "backgroundColor": "#FFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "课程",
+        "iconPath": "images/tab_course1.png",
+        "selectedIconPath": "images/tab_course2.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "images/tab_account1.png",
+        "selectedIconPath": "images/tab_account2.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

@@ -1,0 +1,36 @@
+<import src="/dist/loadmore/index.wxml" />
+<import src="/dist/capsule/index.wxml" />
+<view class="container">
+  <view class="zan-panel class-header" wx:for="{{question_set_lists}}" wx:for-index="idx" data-question_set_id='{{question_set.id}}' bindtap='choose_set' wx:for-item="question_set">
+    <view class="zan-card">
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="{{question_set.logo}}" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            {{question_set.title}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>{{question_set.school}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>{{question_set.author}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col"><template is="capsule" data="{{ leftText: '', rightText: '免费添加', color: '#38f' }}" /> </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-records class-info-icon"></view>共{{question_set.count}}题 
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="zan-loadmore" data="{{ nodata: true }}" wx:if="{{question_set_lists.length == 0}}" />
+</view>

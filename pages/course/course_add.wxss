@@ -1,0 +1,28 @@
+@import "/dist/component/component.wxss";
+.course_number{
+  margin-top: 20px;
+}
+.doc-description {
+  text-align: center;
+}
+.zan-c-black{
+  font-size: 15px;
+}
+.class-info-icon{
+  margin-right: 12rpx;
+}
+.course_img{
+  height: 140px;
+  width: 140px;
+}
+.weui-msg__icon-area{
+  margin-bottom: 20px;
+}
+.zan-panel {
+  margin: 0;
+}
+.recommend_header {
+  text-align:center;
+  font-size:20px;
+  margin:30px 0 20px 0;
+}

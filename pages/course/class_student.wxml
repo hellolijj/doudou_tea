@@ -1,0 +1,18 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' 
+  data='{{hideBtnData}}'></template>
+
+<import src="/dist/loadmore/index.wxml" />
+<view class="zan-panel">
+  <view class="zan-cell" wx:for="{{student_list}}" wx:for-item="student">
+    <view class="zan-cell__icon" style="color:#38f;">{{index+1}}</view>
+    <view class="">
+      <image class="student_head_img" src='{{student.head_img}}'></image>
+    </view>
+    <view class="zan-cell__bd class_student_name">{{student.name}}</view>
+    <view class="zan-cell__ft">{{student.number}}</view>
+  </view>
+</view>
+ <view wx:if="{{student_list.length == 0}}"> 
+  <template is="zan-loadmore" data="{{ nodata: true }}" />
+ </view>

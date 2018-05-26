@@ -1,0 +1,121 @@
+<import src="/dist/tab/index.wxml" />
+<import src="/dist/loadmore/index.wxml" />
+<view class="container">
+  <template is="zan-tab" data="{{ ...signin_list, componentId: 'signin_list' }}"></template>
+
+  <view wx:if="{{signin_list.selectedId == 'before_start'}}">
+    <view class="zan-panel class-header" wx:for="{{signin_items.before_start}}" wx:for-item="signin_item"  data-signin_id='{{signin_item.id}}' bindtap='signin_online'>
+      <view class="zan-card">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__right-col">
+            <view class="zan-icon zan-icon-arrow signin_icon_arrow"></view>
+          </view>
+          <view class="zan-card__left-col zan-ellipsis--l2">
+            <image class="head_img" src='{{signin_item.teacher_head_img}}'></image>
+            <text class='signin_title'>{{signin_item.title}}</text>
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-clock change_icon"></view>
+            {{signin_item.start_time_format}} -- {{signin_item.end_time_format}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" bindtap='changCourse'>
+            <view class="zan-icon zan-icon-contact signin_icon_contact">
+            </view>
+            <text class='signin_count'></text>
+            <view class="zan-tag zan-tag--primary zan-tag--plain">{{signin_item.count}}</view>
+          </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-location change_icon"></view>
+            {{signin_item.address}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{signin_items.before_start.length == 0}}">
+      <template is="zan-loadmore" data="{{ nodata: true }}" />
+    </view>
+  </view>
+
+  <view wx:if="{{signin_list.selectedId == 'is_doing'}}">
+    <view wx:if="{{signin_items.is_doing.length == 0}}">
+      <template is="zan-loadmore" data="{{ nodata: true }}" />
+    </view>
+    <view class="zan-panel class-header" wx:for="{{signin_items.is_doing}}" wx:for-item="signin_item" data-signin_id='{{signin_item.id}}' bindtap='signin_online'>
+      <view class="zan-card">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__right-col">
+            <view class="zan-icon zan-icon-arrow signin_icon_arrow"></view>
+          </view>
+          <view class="zan-card__left-col zan-ellipsis--l2">
+            <image class="head_img" src='{{signin_item.teacher_head_img}}'></image>
+            <text class='signin_title'>{{signin_item.title}}</text>
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-clock change_icon"></view>
+            {{signin_item.start_time_format}} -- {{signin_item.end_time_format}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" bindtap='changCourse'>
+            <view class="zan-icon zan-icon-contact signin_icon_contact">
+            </view>
+            <text class='signin_count'></text>
+            <view class="zan-tag zan-tag--primary zan-tag--plain">{{signin_item.count}}</view>
+          </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-location change_icon"></view>
+            {{signin_item.address}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <view wx:if="{{signin_list.selectedId == 'is_done'}}">
+    <view class="zan-panel class-header" wx:for="{{signin_items.is_done}}" wx:for-item="signin_item" data-signin_id='{{signin_item.id}}' bindtap='signin_online'>
+      <view class="zan-card">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__right-col">
+            <view class="zan-icon zan-icon-arrow signin_icon_arrow"></view>
+          </view>
+          <view class="zan-card__left-col zan-ellipsis--l2">
+            <image class="head_img" src='{{signin_item.teacher_head_img}}'></image>
+            <text class='signin_title'>{{signin_item.title}}</text>
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-clock change_icon"></view>
+            {{signin_item.start_time_format}} -- {{signin_item.end_time_format}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col" bindtap='changCourse'>
+            <view class="zan-icon zan-icon-contact signin_icon_contact">
+            </view>
+            <text class='signin_count'></text>
+            <view class="zan-tag zan-tag--primary zan-tag--plain">{{signin_item.count}}</view>
+          </view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-location change_icon"></view>
+            {{signin_item.address}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{signin_items.is_done.length == 0}}">
+      <template is="zan-loadmore" data="{{ nodata: true }}" />
+    </view>
+  </view>
+
+  <view class="zan-icon zan-icon-add-o signin_add_icon" bindtap='bindSigninCreate' wx-if="{{user_type == 2}}"></view>
+</view>

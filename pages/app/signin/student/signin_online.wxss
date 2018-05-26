@@ -1,0 +1,48 @@
+.zan-tab__item--selected .zan-tab__title {
+  color:#4bbc93;
+  border-bottom: 2px solid #4bbc93;
+}
+.container{
+  padding: 0;
+}
+.zan-panel{
+  margin-top: 0;
+}
+.sigin_icon_msg{
+  color: #4bbc93;
+  font-size: 90px;
+}
+.signin_head_img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-left: 10rpx;
+}
+.signin_student_name{
+  margin-left: 20rpx;
+}
+
+.signin_online_nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%
+}
+.zan-col {
+  line-height: 44px;
+  text-align: center;
+  background-color: #4bbc93;
+  font-size: 14px;
+  color: #fff;
+}
+
+.zan-col:nth-child(even) {
+  background-color: #66c6f2;
+}
+
+.signin_manage_title{
+  height: 44rpx;
+}
+.signin_tag {
+  flex: 2;
+  margin-left:-10px;
+}

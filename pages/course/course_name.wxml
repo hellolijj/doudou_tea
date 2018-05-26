@@ -1,0 +1,13 @@
+<import src="/dist/field/index.wxml" />
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="zan-panel">
+      <view class="zan-cell zan-field">
+        <input type="text" name='course_name' value='{{course_name}}' placeholder="填写课程名称" class="zan-field__input zan-cell__bd" />
+      </view>
+    </view>
+    <view class="zan-btns">
+      <button class="zan-btn zan-btn--primary" formType="submit">确定</button>
+    </view>
+  </form>
+</view>

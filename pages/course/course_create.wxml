@@ -1,0 +1,72 @@
+<block>
+  <view class="zan-panel">
+    <view class="zan-cell zan-cell--access" bindtap="bindCourseImg">
+      <view class="zan-cell__bd">课程logo</view>
+      <view class="zan-cell__ft">
+        <image class="course_img" src="{{course_img}}"></image>
+      </view>
+    </view>
+    <view class="zan-cell zan-cell--access" bindtap='bindCoureName'>
+      <view class="zan-cell__bd">课程名称</view>
+      <view class="zan-cell__ft">
+        <view class="zan-ellipsis" style="width: 540rpx;">
+          {{course_name}}
+        </view>
+      </view>
+    </view>
+    <view class="zan-cell zan-cell--access" bindtap='bindCoureClassName'>
+      <view class="zan-cell__bd">班级名称</view>
+      <view class="zan-cell__ft">
+        <view class="zan-ellipsis" style="width: 540rpx;">
+          {{course_class_name}}
+        </view>
+      </view>
+    </view>
+    <view class="zan-cell zan-cell--access" bindtap='bindCoureClassStudent' data-current_course_id='{{course_id}}' wx:if="{{page_status != 0}}">
+      <view class="zan-cell__bd">班级成员</view>
+      <view class="zan-cell__ft">
+        <view class="zan-ellipsis" style="width: 540rpx;">
+          {{course_student_count}}
+        </view>
+      </view>
+    </view>
+    <view class="zan-cell zan-cell--access" bindtap='bindCoureQuetionBank' wx:if="{{page_status != 0}}">
+      <view class="zan-cell__bd">课程题库</view>
+      <view class="zan-cell__ft">
+        <view class="zan-ellipsis" style="width: 540rpx;">
+          {{course_question_set_title}}
+        </view>
+      </view>
+    </view>
+    <view class="zan-cell zan-cell--access" wx:if="{{page_status != 0}}">
+      <view class="zan-cell__bd">课程锁定</view>
+        <switch checked="{{course_status == 2}}" bindchange="course_status"/>
+    </view>
+  </view>
+
+  <view class="zan-panel-title field__title--radius" wx:if="{{page_status!=2}}">填写说明有助于学生了解本课程信息（选填）</view>
+  <view class="zan-panel-title field__title--radius" wx:else>课程说明</view>
+  <view class="zan-panel" wx:if="{{page_status!=2}}">
+    <view class="zan-cell zan-cell--access" bindtap='bindCoreseRemark'>
+      <view class="zan-cell__bd">课程说明</view>
+      <view class="zan-cell__ft">
+        <view class="zan-ellipsis" style="width: 540rpx;" wx:if="{{page_status==0}}">
+          {{course_remark}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel" wx:if="{{page_status!=0}}">
+    <view class="zan-cell">
+      <view class="zan-cell__bd">
+        <view class="zan-c-gray-darker">{{course_remark}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-btns" bindtap='bindCourseCearte' wx:if="{{page_status == 0}}">
+    <button class="zan-btn zan-btn--primary">创建</button>
+  </view>
+  <view class="zan-btns" bindtap='bindCourseUpdate' wx:if="{{page_status == 1}}">
+    <button class="zan-btn zan-btn--primary">确认修改</button>
+  </view>
+</block>

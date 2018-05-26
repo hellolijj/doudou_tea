@@ -1,0 +1,36 @@
+<view class='content'>
+    <!-- 输入框（表格） -->
+    <view class='pay_number  {{focus_class?"get_focus":""}}' catchtap="set_focus" style='width:{{width}};height:{{height}};'>
+      <!-- <view class='{{focus_class?"get_focus_dot":"password_dot"}}' wx:for="{{value_num}}" >   
+        <view wx:if="{{(value_length==item-1)&&focus_class}}" class="cursor"></view>
+        <view wx:if="{{value_length>=item}}" class="dot">{{current_1_value }}</view>
+      </view>  -->
+       <view class='{{focus_class?"get_focus_dot":"password_dot"}}' wx:for="{{value_num}}" wx:key="{{index}}">
+        <view wx:if="{{(value_length==0)&&focus_class}}" class="cursor"></view>
+        <view wx:if="{{value_length>=item}}" class="dot">{{current_1_value }}</view>
+      </view> 
+      <view class='{{focus_class?"get_focus_dot":"password_dot"}}' wx:for="{{value_num}}" wx:key="{{index}}">       
+        <view wx:if="{{(value_length==1)&&focus_class}}" class="cursor"></view>
+        <view wx:if="{{value_length>=item}}" class="dot">{{current_2_value }}</view>
+      </view> 
+      <view class='{{focus_class?"get_focus_dot":"password_dot"}}' wx:for="{{value_num}}" wx:key="{{index}}">
+        <view wx:if="{{(value_length==2)&&focus_class}}" class="cursor"></view>
+        <view wx:if="{{value_length>=item}}" class="dot">{{current_3_value }}</view>
+      </view> 
+      <view class='{{focus_class?"get_focus_dot":"password_dot"}}' wx:for="{{value_num}}" wx:key="{{index}}">
+        <view wx:if="{{(value_length==3)&&focus_class}}" class="cursor"></view>
+        <view wx:if="{{value_length>=item}}" class="dot">{{current_4_value }}</view>
+      </view> 
+      <view class='{{focus_class?"get_focus_dot":"password_dot"}}' wx:for="{{value_num}}" wx:key="{{index}}">
+        <view wx:if="{{(value_length==4)&&focus_class}}" class="cursor"></view>
+        <view wx:if="{{value_length>=item}}" class="dot">{{current_5_value }}</view>
+      </view> 
+      <view class='{{focus_class?"get_focus_dot":"password_dot"}}' wx:for="{{value_num}}" wx:key="{{index}}">
+        <view wx:if="{{(value_length==5)&&focus_class}}" class="cursor"></view>
+        <view wx:if="{{value_length>=item}}" class="dot">{{current_6_value }}</view>
+      </view>  
+    </view>
+
+    <!-- 输入框（隐藏） -->
+    <input value="{{input_value}}" focus="{{get_focus}}" maxlength="6" type="number" class='input_container' placeholder="" bindinput="get_value" bindfocus="get_focus" bindblur="blur" />
+  </view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "paySix": "/dist/component/component"
+  },
+  "navigationBarTitleText": "加入课程"
+}

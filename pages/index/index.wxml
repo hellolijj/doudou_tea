@@ -1,0 +1,106 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' 
+  data='{{hideBtnData}}'></template>
+<loading hidden="{{hideLoading}}">
+  加载中...
+</loading>
+<view class="container">
+  <view class="zan-panel class-header">
+    <view class="zan-card" bindtap='changCourse'>
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="{{current_course.logo}}" mode="aspectFit"></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__right-col">
+            <view class="zan-icon zan-icon-exchange-record change_icon"></view>
+          </view>
+          <view class="zan-card__left-col zan-font-16 zan-ellipsis--l2">
+            {{current_course.name}}
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-black">
+          <view class="zan-card__right-col"></view>
+          <view class="zan-card__left-col">
+            <view class="zan-icon zan-icon-wap-home class-info-icon"></view>{{current_course.teacher.school}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-black">
+            <view class="zan-icon zan-icon-contact class-info-icon"></view>{{current_course.teacher.name}}
+          </view>
+        </view>
+        <view class="zan-card__detail-row zan-c-gray-darker">
+        <view class="zan-card__right-col" style='margin-right:20rpx;'>课程号:{{current_course.id}} </view>
+          <view class="zan-card__left-col">
+          <view class="zan-icon zan-icon-chat class-info-icon"></view>{{current_course.count}}人加入
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="index-exam-h1">
+    课程相关
+  </view>
+  <view class="index-exam-inlets row">
+    <view bindtap="bindUrlToDownload" data-urlParem='' class="download  col-hg-6" wx:if="{{true}}">
+      <view class="demo__icon zan-badge signin_icon">
+        <image class='demo__icon' src='/images/icon/test.png'></image>
+         <view class="zan-badge__count">{{current_course.course_count}}</view> 
+      </view>
+      <view class="signin_desc">加入课程</view>
+    </view>
+    <view bindtap="bindUrlToSignin" data-urlParem='' class="signin col-hg-6">
+      <view class="demo__icon zan-badge signin_icon">
+        <image class='demo__icon' src='/images/icon/signin.png'></image>
+        <!-- <view class="zan-badge__count">99+</view> -->
+      </view>
+      <view class="signin_desc">在线签到</view>
+    </view>
+  </view>
+
+  <template wx:for="{{examInlets}}" is="index-exam" data="{{item,index}}" />
+
+</view>
+
+<template name="index-exam">
+  <view class="index-exam-h1">
+    课程练习
+    <view class="index-exam-span">{{item.subjectHeader}}共{{item.titleTota}}题</view>
+  </view>
+  <view class="index-exam-inlets row">
+    <view bindtap="bindUrlToCourseTest" data-urlParem='{{item.subject}}' class="index-exam-inlets-mk col-hg-6">
+      <view>随堂测试</view>
+      <view class="small">最高成绩: {{item.highest}}分</view>
+    </view>
+    <view bindtap="bindUrlToStore" class="index-exam-inlets-sc col-hg-6" data-urlParem="{{item.subject}}" data-collection="{{item.collection}}">
+      <view>收藏</view>
+      <view>（{{item.collection}}）</view>
+    </view>
+    <view bindtap="bindUrlToWrong" class="index-exam-inlets-ct col-hg-6" data-urlParem="{{item.subject}}" data-answerError="{{item.answerError}}">
+      <view>答错</view>
+      <view>（{{item.answerError}}）</view>
+    </view>
+
+    <view class="row" style="clear: both;">
+      <view bindtap="exercise" data-type='sxlx' class="index-exam-inlets-list col-hg-3">
+        <view class="icon-index-sx"></view>
+        <view class="text">顺序练习</view>
+      </view>
+      <view bindtap="exercise" data-type='zjlx' class="index-exam-inlets-list col-hg-3">
+        <view class="icon-index-zj"></view>
+        <view class="text">章节练习</view>
+      </view>
+      <view bindtap="exercise" data-type='zylx' class="index-exam-inlets-list col-hg-3">
+        <view class="icon-index-zx"></view>
+        <view class="text">智能推送</view>
+      </view>
+      <view bindtap="exercise" data-type='ztlx' class="index-exam-inlets-list col-hg-3">
+        <view class="icon-index-sj"></view>
+        <view class="text">专题训练</view>
+      </view>
+    </view>
+  </view>
+</template>

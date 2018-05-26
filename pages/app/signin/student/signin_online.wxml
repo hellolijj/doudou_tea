@@ -1,0 +1,151 @@
+<import src="/dist/tab/index.wxml" />
+<import src="/dist/switch/index.wxml" />
+<import src="/dist/loadmore/index.wxml" />
+<view class="container">
+  <view wx:if="{{current_show == 'signin_record'}}" style='margin-bottom:45px;'>
+    <template is="zan-tab" data="{{ ...signin, componentId: 'signin' }}"></template>
+    <view wx:if="{{'signined' == signin.selectedId}}">
+      <view class="zan-panel">
+        <view class="zan-cell" wx:for="{{signin_record_items.finish}}" wx:for-item="signin_record" data-student_id='{{signin_record.uid}}' data-student_name='{{signin_record.name}}' bindtap='signin_undo'>
+          <image class="signin_head_img" src='{{signin_record.head_img}}'></image>
+          <view class="zan-cell__bd signin_student_name">
+            <view class="zan-cell__text">{{signin_record.name}}
+              <view class="zan-tag zan-tag--primary" wx:if="{{signin_record.status==1}}">正常签到</view>
+              <view class="zan-tag zan-tag--primary zan-tag--plain" wx:if="{{signin_record.status==2}}">代签</view>
+              <view class="zan-tag zan-tag--warn" wx:if="{{signin_record.status==3}}">请假</view>
+            </view>
+            <view class="zan-cell__desc">{{signin_record.number}}</view>
+          </view>
+          <view class="zan-cell__ft">{{signin_record.gmt_create_format}}</view>
+        </view>
+      </view>
+      <view wx:if="{{signin_record_items.finish.length == 0}}">
+        <template is="zan-loadmore" data="{{ nodata: true }}" />
+      </view>
+    </view>
+    <view wx:if="{{'un_signin' == signin.selectedId}}">
+      <view class="zan-panel">
+        <view class="zan-cell" wx:for="{{signin_record_items.undo}}" wx:for-item="signin_record" data-student_id='{{signin_record.uid}}' data-student_name='{{signin_record.name}}' bindtap='signin_replace'>
+          <view class="">
+            <image class="signin_head_img" src='{{signin_record.head_img}}'></image>
+          </view>
+           <view class="zan-cell__bd signin_student_name">
+            <view class="zan-cell__text">{{signin_record.name}}
+              <view class="zan-tag zan-tag--danger">缺到</view>
+            </view>
+            <view class="zan-cell__desc">{{signin_record.number}}</view>
+          </view>
+          <view class="zan-cell__ft">{{signin_record.gmt_create_format}}</view>
+        </view>
+      </view>
+      <view wx:if="{{signin_record_items.undo.length == 0}}">
+        <template is="zan-loadmore" data="{{ nodata: true }}" />
+      </view>
+    </view>
+
+  </view>
+  <view wx:if="{{current_show == 'signin_online'}}">
+    <view class="page">
+      <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+          <!-- <view class="zan-icon zan-icon-checked sigin_icon_msg"></view> -->
+          <icon type="waiting" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area" wx:if="{{signin_online.now}}">
+          <view class="weui-msg__title">{{signin_online.now}}</view>
+          <view class="weui-msg__title" style='font-size:16px;'>
+            <view class="zan-icon zan-icon-location change_icon"></view>
+            {{signin_online.location}}
+            <text>E: {{signin_online.longitude}}°</text>
+            <text>N: {{signin_online.latitude}}°</text>
+          </view>
+        </view>
+        <view class="weui-msg__opr-area">
+          <view class="weui-btn-area">
+            <button class="zan-btn zan-btn--primary" bindtap="signin_online">在线签到</button>
+            <!--已签到后的样式  -->
+            <!-- <button class="weui-btn" type="default">辅助操作</button> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{current_show == 'signin_manage'}}">
+    <view class="page">
+      <view class="zan-panel-title field__title--radius signin_manage_title">签到信息</view>
+      <view class="zan-panel">
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">签到名称</view>
+          <view class="zan-cell__ft">
+            {{signin_management.title}}
+          </view>
+        </view>
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">签到日期</view>
+          <view class="zan-cell__ft">
+            {{signin_management.start_time_formate_date}}
+          </view>
+        </view>
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">开始时间</view>
+          <view class="zan-cell__ft">
+            {{signin_management.start_time_formate_time}}
+          </view>
+        </view>
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">结束时间</view>
+          <view class="zan-cell__ft">
+            {{signin_management.end_time_formate_time}}
+          </view>
+        </view>
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">地理位置点名</view>
+          <view class="zan-cell__ft">
+            {{signin_management.address}}
+          </view>
+        </view>
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">设置签到范围（米）</view>
+          <view class="zan-cell__ft">
+            {{signin_management.radius}}
+          </view>
+        </view>
+      </view>
+      <view class="zan-panel-title field__title--radius signin_manage_title">签到管理</view>
+      <view class="zan-panel">
+        <view class="zan-cell zan-cell--switch">
+          <view class="zan-cell__bd">签到状态</view>
+          <view class="zan-cell__ft">
+            <template is="zan-switch" data="{{ is_checked }}" />
+          </view>
+        </view>
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">延长签到时间至</view>
+          <view class="zan-cell__ft">
+            {{signin_management.end_time_formate_time}}
+          </view>
+        </view>
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd">代为签到</view>
+          <view class="zan-cell__ft">
+
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="zan-panel signin_online_nav">
+    <view class="zan-row">
+      <view class="zan-col zan-col-12" wx:if="{{user_type == 1}}" bindtap='bindSigninOnlineShow'>
+        签到
+      </view>
+      <view class="zan-col zan-col-12" wx:if="{{user_type == 2}}" bindtap='bindSigninManageShow'>
+        管理
+      </view>
+      <view class="zan-col zan-col-12" bindtap='bindSigninRecordShow'>
+        记录
+      </view>
+    </view>
+  </view>
+</view>

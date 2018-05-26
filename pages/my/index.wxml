@@ -1,0 +1,56 @@
+<import src="../template/template.wxml" />
+<template wx:if="{{!is_showHideBtn}}" is='hideBtn' data='{{hideBtnData}}'></template>
+<scroll-view class="pageContainer" bindscroll="scrooll" scroll-y="true">
+  <view class="header">
+    <image src="{{head_img?head_img:'/images/default_head_circle.png'}}" animation="{{userImgAnimation}}"></image>
+    <view class="styState flex">
+      <!-- <view animation="{{styStateAnimation}}">
+        <text>上次学习</text>
+        <text><text id="bg-font">3</text>天前</text>
+      </view>
+      <view animation="{{styStateAnimation}}"></view>
+      <view animation="{{styStateAnimation}}">
+        <text>本月已答题</text>
+        <text><text id="bg-font">300</text>道</text>
+      </view> -->
+    </view>
+  </view>
+  <block>
+    <view class="zan-panel">
+      <view class="zan-cell zan-cell--access" bindtap='bindMyInfo'>
+        <view class="zan-cell__bd">我的信息</view>
+        <view class="zan-cell__ft"></view>
+      </view>
+      <navigator class="zan-cell zan-cell--access" url="/pages/course/course_change">
+        <view class="zan-cell__bd">我的课程</view>
+        <view class="zan-cell__ft"></view>
+      </navigator>
+      <view class="zan-cell zan-cell--access">
+        <view class="zan-cell__bd">我的邀请码</view>
+        <view class="zan-cell__ft">20180215</view>
+      </view>
+    </view>
+    <view class="zan-panel">
+      <view class="zan-cell zan-cell--access">
+        <view class="zan-cell__bd">当前版本</view>
+        <view class="zan-cell__ft">v1.3.6</view>
+      </view>
+      <navigator class="zan-cell zan-cell--access" url='/pages/my/update'>
+        <view class="zan-cell__bd">更新日志</view>
+        <view class="zan-cell__ft"></view>
+      </navigator>
+      <!-- <navigator class="zan-cell zan-cell--access" url='/pages/my/help'>
+        <view class="zan-cell__bd">使用帮助</view>
+        <view class="zan-cell__ft"></view>
+      </navigator> -->
+      <navigator class="zan-cell zan-cell--access" url='/pages/my/about'>
+        <view class="zan-cell__bd">关于我们</view>
+        <view class="zan-cell__ft"></view>
+      </navigator>
+    </view>
+  </block>
+  <button class="zan-btn zan-btn--mini zan-btn--primary wechat_contact">
+    <contact-button type="default-light" size="20" session-from="weapp"></contact-button>
+    <view style='margin-top:-10px'>反馈</view>
+  </button>
+</scroll-view>

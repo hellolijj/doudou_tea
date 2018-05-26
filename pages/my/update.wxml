@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="zan-cell">
+      <view class="zan-cell__bd">
+        <view class="">
+          <view>2018年3月20日</view>
+          <view class="zan-c-black">1、增加更新日</view>
+          <view class="zan-c-black">2、增加关于我们</view>
+          <view class="zan-c-black">3、增加教师注册邀请码</view>
+        </view>
+      </view>
+  </view>
+</view>
+
+
+
+

@@ -1,0 +1,12 @@
+.student_head_img {
+  width: 54rpx;
+  height: 54rpx;
+  border-radius: 50%;
+  margin-left: 10rpx;
+}
+.class_student_name {
+  margin-left: 20rpx;
+}
+.zan-panel{
+  margin: 0;
+}

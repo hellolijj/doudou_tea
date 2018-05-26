@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <radio-group bindchange="radioChange">
+          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+            <view class="weui-cell__bd">{{item.name}}</view>
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="true"/>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+
+  <view class="zan-btns">
+    <button class="zan-btn zan-btn--primary" formType="submit" bindtap="submit">提交数据</button>
+  </view>
+</view>
