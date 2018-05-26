@@ -31,7 +31,7 @@
     "backgroundColor": "#4bbc93",
     "backgroundTextStyle": "#eee",
     "navigationBarBackgroundColor": "#4bbc93",
-    "navigationBarTitleText": "豆豆云助教(教室端)",
+    "navigationBarTitleText": "豆豆云助教",
     "navigationBarTextStyle": "light"
   },
   "tabBar": {
@@ -42,7 +42,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "班级",
+        "text": "课程",
         "iconPath": "images/tab_course1.png",
         "selectedIconPath": "images/tab_course2.png"
       },
