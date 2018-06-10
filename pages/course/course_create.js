@@ -60,6 +60,9 @@ Page({
       })
     }
   },
+  onShow() {
+    wx.hideLoading()
+  },
   bindCourseImg() {
     if (this.data.page_status == 2) {
       return
