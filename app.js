@@ -4,7 +4,7 @@ const check3RdUrl = require('./config').check3RdUrl
 const setSessionUrl = require('./config').setSessionUrl
 const wxPromisify = require('./util/util.js').wxPromisify
 const codeUrl = require('./config').loginUrl
-//aaaaa
+
 App({
   onLaunch: function () {
     let userInfo;
