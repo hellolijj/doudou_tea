@@ -8,7 +8,7 @@ Page(Object.assign({}, Zan.TopTips, {
     tel: '',
     school: '',
     num: '',
-    invitationCode: '', //邀请码
+    // invitationCode: '', //邀请码
   },
   getUserSchool() {
     wx.navigateTo({
@@ -26,11 +26,11 @@ Page(Object.assign({}, Zan.TopTips, {
     })
   },
   // 用户验证码
-  changeInvitationCode(e) {
-    this.setData({
-      invitationCode: e.detail.value,
-    })
-  },
+  // changeInvitationCode(e) {
+  //   this.setData({
+  //     invitationCode: e.detail.value,
+  //   })
+  // },
   bindSubmit(e) {
     if (!this.data.name) {
       this.showZanTopTips('姓名不能为空');
@@ -45,10 +45,10 @@ Page(Object.assign({}, Zan.TopTips, {
       return
     }
     // 注册成为教师用户
-    if (!this.data.invitationCode) {
-      this.showZanTopTips('请输入邀请码')
-      return
-    }
+    // if (!this.data.invitationCode) {
+    //   this.showZanTopTips('请输入邀请码')
+    //   return
+    // }
     console.log(this.data)
     wx.showLoading({
       title: '绑定中',
@@ -64,7 +64,8 @@ Page(Object.assign({}, Zan.TopTips, {
         name: this.data.name,
         tel: this.data.tel,
         school: this.data.school,
-        invitation_code: this.data.invitationCode,
+        // invitation_code: this.data.invitationCode,
+        invitation_code: '20180215',
         user_type: 'teacher',
       },
       method: 'POST',

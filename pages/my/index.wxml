@@ -25,15 +25,15 @@
         <view class="zan-cell__bd">我的课程</view>
         <view class="zan-cell__ft"></view>
       </navigator>
-      <view class="zan-cell zan-cell--access">
+      <!-- <view class="zan-cell zan-cell--access">
         <view class="zan-cell__bd">我的邀请码</view>
         <view class="zan-cell__ft">20180215</view>
-      </view>
+      </view> -->
     </view>
     <view class="zan-panel">
       <view class="zan-cell zan-cell--access">
         <view class="zan-cell__bd">当前版本</view>
-        <view class="zan-cell__ft">v1.3.6</view>
+        <view class="zan-cell__ft">v8.07.2</view>
       </view>
       <navigator class="zan-cell zan-cell--access" url='/pages/my/update'>
         <view class="zan-cell__bd">更新日志</view>

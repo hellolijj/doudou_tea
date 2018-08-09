@@ -6,11 +6,18 @@
           <view class="zan-c-black">1、增加更新日</view>
           <view class="zan-c-black">2、增加关于我们</view>
           <view class="zan-c-black">3、增加教师注册邀请码</view>
+          <text>\n</text>
+          <view>2018年5月1日</view>
+          <view class="zan-c-black">1、将教师端与学生端分离</view>
+          <text>\n</text>
+          <view>2018年6月7日</view>
+          <view class="zan-c-black">1、签到页面优化</view>
+          <text>\n</text>
+          <view>2018年8月7日</view>
+          <view class="zan-c-black">1、废除邀请码</view>
+          <view class="zan-c-black">2、修复部分openId参数错误</view>
+          <text>\n</text>
         </view>
       </view>
   </view>
 </view>
-
-
-
-

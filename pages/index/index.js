@@ -1,4 +1,4 @@
-import componentsConfig from './config'
+  import componentsConfig from './config'
 const apiUrl = require('../../config.js').apiUrl
 const https = require('../../util/douban.js');
 var app = getApp();

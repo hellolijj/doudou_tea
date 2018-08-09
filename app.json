@@ -23,6 +23,8 @@
     "pages/my/my_name",
     "pages/my/my_num",
     "pages/my/my_sex",
+    "pages/my/about",
+    "pages/my/update",
     "pages/course/course_name",
     "pages/course/course_class_name",
     "pages/course/course_remark"
