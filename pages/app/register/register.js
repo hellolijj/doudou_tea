@@ -49,7 +49,6 @@ Page(Object.assign({}, Zan.TopTips, {
     //   this.showZanTopTips('请输入邀请码')
     //   return
     // }
-    console.log(this.data)
     wx.showLoading({
       title: '绑定中',
     })
@@ -64,12 +63,12 @@ Page(Object.assign({}, Zan.TopTips, {
         name: this.data.name,
         tel: this.data.tel,
         school: this.data.school,
-        // invitation_code: this.data.invitationCode,
         invitation_code: '20180215',
         user_type: 'teacher',
       },
       method: 'POST',
       success: res => {
+        console.log(res)
         wx.hideLoading()
         if (res.data.success == true) {
           wx.showToast({
@@ -80,7 +79,7 @@ Page(Object.assign({}, Zan.TopTips, {
             url: '/pages/index/index',
           })
         } else {
-          wx.showToast({title: res.data.message,icon: 'none',})
+          wx.showToast({ title: res.data.message, icon: 'none', })
         }
       }
     })

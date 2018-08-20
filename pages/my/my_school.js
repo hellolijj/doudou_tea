@@ -23,7 +23,6 @@ Page({
     });
   },
   inputTyping: function (e) {
-    console.log(e)
     this.setData({
       inputVal: e.detail.value
     });
