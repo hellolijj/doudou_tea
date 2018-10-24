@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/app/register/register",
-    
     "pages/course/course_create",
     "pages/app/question/list",
     "pages/course/class_student",
