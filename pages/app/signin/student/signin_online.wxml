@@ -29,7 +29,7 @@
           <view class="">
             <image class="signin_head_img" src='{{signin_record.head_img}}'></image>
           </view>
-           <view class="zan-cell__bd signin_student_name">
+          <view class="zan-cell__bd signin_student_name">
             <view class="zan-cell__text">{{signin_record.name}}
               <view class="zan-tag zan-tag--danger">缺到</view>
             </view>
@@ -116,20 +116,33 @@
         <view class="zan-cell zan-cell--switch">
           <view class="zan-cell__bd">签到状态</view>
           <view class="zan-cell__ft">
-            <template is="zan-switch" data="{{ is_checked }}" />
+            <switch checked='{{is_checked}}' bindchange='signin_status'></switch>
           </view>
         </view>
         <view class="zan-cell zan-cell--access">
-          <view class="zan-cell__bd">延长签到时间至</view>
+          <view class="weui-cell__hd" bindtap='signin_extend'>延长签到时间至</view>
           <view class="zan-cell__ft">
-            {{signin_management.end_time_formate_time}}
+            <picker mode="time" value="{{time}}" bindchange="signin_extend">
+              <view class="picker">
+                {{time}}
+              </view>
+            </picker>
           </view>
+          <!-- <view class="zan-cell__ft">
+            {{signin_management.end_time_formate_time}}
+          </view> -->
         </view>
-        <view class="zan-cell zan-cell--access">
+        <!-- <view class="zan-cell zan-cell--access">
           <view class="zan-cell__bd">代为签到</view>
           <view class="zan-cell__ft">
 
           </view>
+        </view> -->
+      </view>
+
+      <view class="zan-panel exit">
+        <view class="zan-cell zan-cell--access">
+          <view class="zan-cell__bd abolish" bindtap='signin_abolish'>废除签到</view>
         </view>
       </view>
 
@@ -137,10 +150,7 @@
   </view>
   <view class="zan-panel signin_online_nav">
     <view class="zan-row">
-      <view class="zan-col zan-col-12" wx:if="{{user_type == 1}}" bindtap='bindSigninOnlineShow'>
-        签到
-      </view>
-      <view class="zan-col zan-col-12" wx:if="{{user_type == 2}}" bindtap='bindSigninManageShow'>
+      <view class="zan-col zan-col-12" bindtap='bindSigninManageShow'>
         管理
       </view>
       <view class="zan-col zan-col-12" bindtap='bindSigninRecordShow'>

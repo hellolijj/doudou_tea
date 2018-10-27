@@ -63,7 +63,7 @@ Page(Object.assign({}, Zan.TopTips, {
         name: this.data.name,
         tel: this.data.tel,
         school: this.data.school,
-        invitation_code: '20180215',
+        invitation_code: 'IEEE',
         user_type: 'teacher',
       },
       method: 'POST',

@@ -46,3 +46,18 @@
   flex: 2;
   margin-left:-10px;
 }
+/* .weui-btn {
+  margin-bottom: 60px;
+} */
+.exit {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  color: #f00;
+}
+.abolish {
+  font-size: 15px;
+  text-align: center;
+}
+.zan-cell__ft {
+  width:415rpx;
+}
