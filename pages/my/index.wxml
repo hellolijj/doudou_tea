@@ -49,8 +49,8 @@
       </navigator>
     </view>
   </block>
-  <button class="zan-btn zan-btn--mini zan-btn--primary wechat_contact">
+  <!-- <button class="zan-btn zan-btn--mini zan-btn--primary wechat_contact">
     <contact-button type="default-light" size="20" session-from="weapp"></contact-button>
     <view style='margin-top:-10px'>反馈</view>
-  </button>
+  </button> -->
 </scroll-view>

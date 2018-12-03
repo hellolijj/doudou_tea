@@ -1,1 +1,5 @@
 /* pages/my/about.wxss */
+image {
+  width: 690rpx;
+  height: 945rpx;
+}

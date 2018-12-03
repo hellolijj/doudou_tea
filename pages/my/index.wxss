@@ -2,7 +2,7 @@
 .header{
     position: relative;
     height: 300rpx;
-    background-color: #4bbc93;
+    background-color: #9b59b6;
 }
 .header image{
     position: absolute;

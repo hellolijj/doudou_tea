@@ -9,7 +9,8 @@ Page(Object.assign({}, Zan.Switch, {
     array: ['2', '3', '4', '5', '6', '7', '8'],
     index: 1,
     hasLocation: false,
-    locationAddress: '请指定签到地点',
+    locationAddress: '获取当前位置',
+    describe: '无描述',
     latitude: '',
     longitude: '',
     radius: 500,
@@ -36,30 +37,35 @@ Page(Object.assign({}, Zan.Switch, {
       checked: e.checked
     });
   },
-  bindDateChange: function (e) {
+  bindDateChange: function(e) {
     this.setData({
       date: e.detail.value
     })
   },
-  bindTimeChange: function (e) {
+  bindTimeChange: function(e) {
     this.setData({
       time: e.detail.value
     })
   },
-  bindChooseLocation: function (e) {
+  bindGetLocation: function(e) {
     var that = this
-    wx.chooseLocation({
-      success: function (res) {
+    wx.getLocation({
+      success: function(res) {
         that.setData({
           hasLocation: true,
           latitude: res.latitude,
           longitude: res.longitude,
-          locationAddress: res.address
+          locationAddress: '(' + res.longitude + ',' + res.latitude + ')'
         })
-      }
+        console.log(res)
+        wx.showToast({
+          title: '位置获取成功',
+          icon: 'none'
+        })
+      },
     })
   },
-  formSubmit: function (e) {
+  formSubmit: function(e) {
     console.log(e)
     if (this.data.is_locked == true) {
       return
@@ -67,11 +73,13 @@ Page(Object.assign({}, Zan.Switch, {
     wx.showLoading({
       title: '提交中...',
     })
-    this.setData({ is_locked: true })
+    this.setData({
+      is_locked: true
+    })
     let title = e.detail.value.title
     let radius = e.detail.value.radius
+    let address = e.detail.value.describe
     let last_time = this.data.array[this.data.index] * 60 //持续时间（秒）
-    let address = this.data.locationAddress
     let latitude = this.data.latitude
     let longitude = this.data.longitude
     let cid = wx.getStorageSync('pingshifen_current_course_id');
@@ -80,7 +88,9 @@ Page(Object.assign({}, Zan.Switch, {
         title: '签到名称不能为空',
         icon: 'none'
       })
-      this.setData({ is_locked: false })
+      this.setData({
+        is_locked: false
+      })
       return
     }
     if (!this.data.date || !this.data.time) {
@@ -88,7 +98,9 @@ Page(Object.assign({}, Zan.Switch, {
         title: '签到日期不能为空',
         icon: 'none'
       })
-      this.setData({ is_locked: false })
+      this.setData({
+        is_locked: false
+      })
       return
     }
     let start_time_str = (this.data.date + ' ' + this.data.time).replace(/-/g, '/')
@@ -101,21 +113,33 @@ Page(Object.assign({}, Zan.Switch, {
         title: '签到时间错误',
         icon: 'none',
       })
-      this.setData({ is_locked: false })
+      this.setData({
+        is_locked: false
+      })
       return
     }
     // 签到地理位置
-    if (address == '请指定签到地点' || !latitude || !longitude || !radius) {
+    if (!address) {
+      address = '无描述'
+    }
+    if (!latitude || !longitude || !radius) {
       wx.showToast({
         title: '签到地理位置错误',
         icon: 'none',
       })
-      this.setData({ is_locked: false })
+      this.setData({
+        is_locked: false
+      })
       return
     }
     if (!cid) {
-      wx.showToast({ title: '课程信息错误', icon: 'none', })
-      this.setData({ is_locked: false })
+      wx.showToast({
+        title: '课程信息错误',
+        icon: 'none',
+      })
+      this.setData({
+        is_locked: false
+      })
       return
     }
     // 发起签到
@@ -140,7 +164,9 @@ Page(Object.assign({}, Zan.Switch, {
       method: 'POST',
       success: res => {
         wx.hideLoading()
-        this.setData({ is_locked: false })
+        this.setData({
+          is_locked: false
+        })
         if (res.data.success == false) {
           wx.showToast({
             title: res.data.message,
@@ -150,8 +176,10 @@ Page(Object.assign({}, Zan.Switch, {
           wx.showToast({
             title: '签到创建成功',
           })
-          this.setData({ is_disabled: true })
-          setTimeout(function () {
+          this.setData({
+            is_disabled: true
+          })
+          setTimeout(function() {
             // 此处不能用relaunch ，这样新的页面没有返回页面
             wx.redirectTo({
               url: '/pages/app/signin/student/signin',
@@ -161,5 +189,4 @@ Page(Object.assign({}, Zan.Switch, {
       },
     })
   }
-})
-);
+}));
