@@ -10,7 +10,7 @@ Page(Object.assign({}, Zan.Switch, {
     index: 1,
     hasLocation: false,
     locationAddress: '获取当前位置',
-    describe: '无描述',
+    describe: '',
     latitude: '',
     longitude: '',
     radius: 500,
@@ -53,14 +53,28 @@ Page(Object.assign({}, Zan.Switch, {
       success: function(res) {
         that.setData({
           hasLocation: true,
+          altitude: true,
           latitude: res.latitude,
           longitude: res.longitude,
-          locationAddress: '(' + res.longitude + ',' + res.latitude + ')'
         })
-        console.log(res)
-        wx.showToast({
-          title: '位置获取成功',
-          icon: 'none'
+        wx.request({ // 百度地图API，将微信获得的经纬度传给百度，获得城市等信息
+          url: 'https://api.map.baidu.com/geocoder/v2/?ak=GAKrXdS2lPhNejYKnvfalheyoiTqcnWG&location=' + res.latitude + ',' + res.longitude + '&output=json&coordtype=gcj02',
+          data: {},
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: function (f) {
+            wx.showToast({
+              title: '位置获取成功',
+              icon: 'none'
+            })
+            that.setData({
+              latitude: res.latitude,
+              longitude: res.longitude,
+              locationAddress: f.data.result.sematic_description,
+            })
+          },
+          fail: function () { wx.showToast({ title: '获取位置信息失败！', }) },
         })
       },
     })
@@ -78,7 +92,8 @@ Page(Object.assign({}, Zan.Switch, {
     })
     let title = e.detail.value.title
     let radius = e.detail.value.radius
-    let address = e.detail.value.describe
+    let address = this.data.locationAddress
+    let describe = e.detail.value.describe
     let last_time = this.data.array[this.data.index] * 60 //持续时间（秒）
     let latitude = this.data.latitude
     let longitude = this.data.longitude
@@ -119,8 +134,8 @@ Page(Object.assign({}, Zan.Switch, {
       return
     }
     // 签到地理位置
-    if (!address) {
-      address = '无描述'
+    if (!!describe) {
+      address = describe
     }
     if (!latitude || !longitude || !radius) {
       wx.showToast({
